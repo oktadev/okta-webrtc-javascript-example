@@ -1,0 +1,25 @@
+extends layout
+
+block variables
+  - var title = 'Chat'
+
+block content
+  div#message
+  div#broadcast
+    video#remoteVideo(playsinline autoplay)
+    .row.mb-2
+      .col-lg-12
+        table#chat-table.table.table-striped
+          tr
+    .row
+      .col-lg-10
+        input#chat-message(type=text placeholder="enter a message").form-control
+      .col-lg-2
+        button#chat-button.btn.btn-primary Send
+    
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js")
+  script(src="https://webrtc.github.io/adapter/adapter-latest.js")
+  script(src="..\\js\\viewer.js")
+  script.
+      viewer('!{room}', '!{JSON.stringify(user)}')    

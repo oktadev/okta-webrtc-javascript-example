@@ -1,0 +1,24 @@
+extends layout
+
+block variables
+  - var title = 'Welcome to Broadcaster'
+
+block content
+  .row
+    .col-lg-3
+      h3 Broadcasters
+      if rooms.length == 0
+        span there are no broadcasters online 
+      else
+        ul
+          each room, i in rooms
+            li
+              a(href="view/"+room.room ) #{room.user}
+    .col-lg-9
+      .jumbotron
+        h1 Broadcast yourself
+        p.lead You can broadcast your own videos here.
+        hr.my-4
+        p.lead Give it a try
+        a(href="Broadcast") 
+          button.btn.btn-primary Start Broadcasting  

@@ -1,0 +1,21 @@
+extends layout
+
+block variables
+  - var title = 'Broadcast yourself'
+
+block content
+  div#message
+  div#broadcast
+    .row
+      .col.align-self-center.text-center
+        video#localVideo(playsinline autoplay muted)
+    .row.mb-2
+      .col-lg-12
+        table#chat-table.table.table-striped
+          tr
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js")
+  script(src="https://webrtc.github.io/adapter/adapter-latest.js")
+  script(src="..\\js\\broadcaster.js")
+  script.
+      broadcaster('!{JSON.stringify(user)}')
